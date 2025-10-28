@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[이름]의 소개 페이지</title>
+    <style>
+        /* 기본 스타일 설정 */
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* 전체를 감싸는 컨테이너 */
+        .container {
+            width: 80%;
+            max-width: 960px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: #0779e4 3px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* 각 섹션 스타일 */
+        section {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #0779e4;
+            border-bottom: 2px solid #f4f4f4;
+            padding-bottom: 10px;
+        }
+
+        /* 연락처 목록 스타일 */
+        #contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contact li {
+            padding: 5px 0;
+        }
+
+        #contact a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            color: #0779e4;
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Top Right Auth Styles */
+        #auth-container-top-right {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        #auth-container-top-right button {
+            background: none;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #auth-container-top-right button:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        /* Auth Section Styles */
+        #auth input[type="email"],
+        #auth input[type="password"] {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #auth button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        #auth #signup-btn {
+            background-color: #28a745; /* Green */
+            color: white;
+        }
+        #auth #signup-btn:hover { background-color: #218838; }
+
+        #auth #signin-btn {
+            background-color: #007bff; /* Blue */
+            color: white;
+        }
+        #auth #signin-btn:hover { background-color: #0069d9; }
+
+        #auth #logout-btn {
+            background-color: #dc3545; /* Red */
+            color: white;
+        }
+        #auth #logout-btn:hover { background-color: #c82333; }
+
+        #auth #auth-error {
+            color: #dc3545; /* Red */
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 오른쪽 상단 인증 영역 -->
+    <div id="auth-container-top-right">
+        <div id="logged-out-view">
+            <button id="login-link-top">로그인</button>
+            <button id="signup-link-top">회원가입</button>
+        </div>
+        <div id="logged-in-view" style="display: none;">
+            <span>환영합니다, <span id="user-email-top"></span>님!</span>
+            <button id="logout-btn-top">로그아웃</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>[이름]</h1>
+            <p>[자신을 한 문장으로 표현해 보세요. 예: 열정적인 신입 개발자]</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>소개 (About Me)</h2>
+            <p>
+                이곳에 자신에 대한 자세한 소개를 작성해 보세요. 어떤 사람인지, 무엇에 관심이 있는지, 어떤 목표를 가지고 있는지 등을 자유롭게 표현할 수 있습니다.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>보유 기술 (Skills)</h2>
+            <ul>
+                <li>[보유 기술 1, 예: HTML & CSS]</li>
+                <li>[보유 기술 2, 예: JavaScript]</li>
+                <li>[보유 기술 3, 예: React]</li>
+                <li>[보유 기술 4, 예: Java & Spring]</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>프로젝트 (Projects)</h2>
+            <p>
+                진행했던 프로젝트에 대해 간략하게 설명해 보세요. 링크가 있다면 함께 추가하는 것이 좋습니다.
+            </p>
+            <!-- 예시:
+            <h3>프로젝트 명 1</h3>
+            <p>프로젝트에 대한 간단한 설명. <a href="#">프로젝트 링크</a></p>
+            -->
+        </section>
+
+        <section id="contact">
+            <h2>연락처 (Contact)</h2>
+            <ul>
+                <li>이메일: <a href="mailto:[이메일 주소]">[이메일 주소]</a></li>
+                <li>GitHub: <a href="https://github.com/[GitHub ID]" target="_blank">github.com/[GitHub ID]</a></li>
+                <li>블로그: <a href="[블로그 주소]" target="_blank">[블로그 이름 또는 주소]</a></li>
+            </ul>
+        </section>
+
+        <section id="auth" style="display: none;">
+            <h2>로그인 / 회원가입 (Authentication)</h2>
+            <div id="auth-status">
+                <p>현재 상태: <span id="user-status">로그아웃됨</span></p>
+                <p id="user-display" style="display: none;">환영합니다, <span id="user-email"></span>님!</p>
+            </div>
+
+            <div id="auth-forms">
+                <h3>회원가입 / 로그인</h3>
+                <input type="email" id="auth-email" placeholder="이메일" required>
+                <input type="password" id="auth-password" placeholder="비밀번호 (6자 이상)" required>
+                <button id="signup-btn">회원가입</button>
+                <button id="signin-btn">로그인</button>
+                <p id="auth-error"></p>
+            </div>
+
+            <div id="logout-area" style="display: none; margin-top: 20px;">
+                <button id="logout-btn">로그아웃</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 [이름]. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK 스크립트 추가 -->
+    <!-- Firebase SDK v9 (compat) 버전 사용. 최신 프로젝트에서는 modular 버전을 권장합니다. -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <script>
+        // TODO: 여기에 Firebase 프로젝트 설정 정보를 붙여넣으세요.
+        // Firebase 콘솔에서 웹 앱을 등록할 때 제공되는 'firebaseConfig' 객체입니다.
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // UI 요소 가져오기
+        const authEmailInput = document.getElementById('auth-email');
+        const authPasswordInput = document.getElementById('auth-password');
+        const signupBtn = document.getElementById('signup-btn');
+        const signinBtn = document.getElementById('signin-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const authError = document.getElementById('auth-error');
+        const userStatusSpan = document.getElementById('user-status');
+        const userDisplayDiv = document.getElementById('user-display');
+        const userEmailSpan = document.getElementById('user-email');
+        const authFormsDiv = document.getElementById('auth-forms');
+        const logoutAreaDiv = document.getElementById('logout-area');
+        const authSection = document.getElementById('auth');
+
+        // 오른쪽 상단 UI 요소
+        const loggedOutView = document.getElementById('logged-out-view');
+        const loggedInView = document.getElementById('logged-in-view');
+        const userEmailTopSpan = document.getElementById('user-email-top');
+
+        // 이벤트 리스너
+        signupBtn.addEventListener('click', () => {
+            const email = authEmailInput.value;
+            const password = authPasswordInput.value;
+            authError.textContent = ''; // 이전 오류 메시지 지우기
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    console.log('회원가입 성공:', userCredential.user.email);
+                    // onAuthStateChanged 리스너가 UI를 업데이트할 것입니다.
+                })
+                .catch((error) => {
+                    authError.textContent = '회원가입 실패: ' + error.message;
+                    console.error('회원가입 실패:', error);
+                });
+        });
+
+        signinBtn.addEventListener('click', () => {
+            const email = authEmailInput.value;
+            const password = authPasswordInput.value;
+            authError.textContent = ''; // 이전 오류 메시지 지우기
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    console.log('로그인 성공:', userCredential.user.email);
+                    // onAuthStateChanged 리스너가 UI를 업데이트할 것입니다.
+                })
+                .catch((error) => {
+                    authError.textContent = '로그인 실패: ' + error.message;
+                    console.error('로그인 실패:', error);
+                });
+        });
+
+        const handleLogout = () => {
+            auth.signOut().catch((error) => {
+                authError.textContent = '로그아웃 실패: ' + error.message;
+                console.error('로그아웃 실패:', error);
+            });
+        };
+
+        logoutBtn.addEventListener('click', handleLogout);
+        document.getElementById('logout-btn-top').addEventListener('click', handleLogout);
+
+        const showAuthSection = () => {
+            authSection.style.display = 'block';
+            authSection.scrollIntoView({ behavior: 'smooth' });
+        };
+
+        document.getElementById('login-link-top').addEventListener('click', () => {
+            showAuthSection();
+        });
+        document.getElementById('signup-link-top').addEventListener('click', () => {
+            showAuthSection();
+        });
+
+        // 인증 상태 변화 감지 리스너
+        auth.onAuthStateChanged((user) => {
+            const isLoggedIn = !!user;
+            userStatusSpan.textContent = isLoggedIn ? '로그인됨' : '로그아웃됨';
+            userDisplayDiv.style.display = isLoggedIn ? 'block' : 'none';
+            userEmailSpan.textContent = isLoggedIn ? user.email : '';
+            authFormsDiv.style.display = isLoggedIn ? 'none' : 'block';
+            logoutAreaDiv.style.display = isLoggedIn ? 'block' : 'none';
+            authError.textContent = '';
+
+            // 오른쪽 상단 UI 업데이트
+            loggedOutView.style.display = isLoggedIn ? 'none' : 'block';
+            loggedInView.style.display = isLoggedIn ? 'block' : 'none';
+            userEmailTopSpan.textContent = isLoggedIn ? user.email : '';
+
+            if (!isLoggedIn) {
+                authEmailInput.value = '';
+                authPasswordInput.value = '';
+                authSection.style.display = 'none'; // 로그아웃 시 폼 숨기기
+            }
+        });
+    </script>
+</body>
+</html>
